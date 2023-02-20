@@ -1,0 +1,26 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+<div class="container ">
+    <h3 style="color: blue;">Category</h3>
+<form action="{% url 'addcategory' %}" method="post" class="row g-3 needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="col-md-4">
+      <div class="form-outline">
+        <input name="name" type="text" class="form-control" id="validationCustom01" value="Mark" required />
+        <label for="validationCustom01" class="form-label">Name</label>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-outline">
+        <input name="branch" type="text" class="form-control" id="validationCustom02" value="Otto" required />
+        <label for="validationCustom02" class="form-label">Branch*</label>
+        <div class="valid-feedback">Looks good!</div>
+      </div>
+    </div>
+    <div class="col-12">
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </div>
+  </form>
+</div>
+{% endblock %}

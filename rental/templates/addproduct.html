@@ -1,0 +1,78 @@
+{% extends 'dashboard.html' %}
+{% block content %}
+<div class="container ">
+    <h3 style="color: blue;">Product</h3>
+<form action="{% url 'addproduct' %}" method="post" enctype="multipart/form-data" class="row g-3 needs-validation" novalidate>
+    {% csrf_token %}
+    <div class="col-md-4">
+        <div class="form-outline">
+          <input name="name" type="text" class="form-control" id="validationCustom01"  required />
+          <label for="validationCustom01" class="form-label">Name</label>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-outline">
+          <input name="tag"  type="text" class="form-control" id="validationCustom02"  required />
+          <label for="validationCustom02" class="form-label">Tag</label>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-outline">
+          <input name="color" type="text" class="form-control" id="validationCustom02"  required />
+          <label for="validationCustom02" class="form-label">Color</label>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-outline">
+          <input name="size" type="text" class="form-control" id="validationCustom02"  required />
+          <label for="validationCustom02" class="form-label">Size</label>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-outline">
+          <input name="description" type="text" class="form-control" id="validationCustom03" required />
+          <label for="validationCustom03" class="form-label">Description</label>
+          <div class="invalid-feedback">Please provide a description.</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-outline">
+          <input name="price" type="text" class="form-control" id="validationCustom05" required />
+          <label for="validationCustom05" class="form-label">Price</label>
+          <div class="invalid-feedback">Please provide a valid zip.</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-outline">
+          <input name="gender" type="text" class="form-control" id="validationCustom01" required />
+          <label for="validationCustom01" class="form-label">Gender</label>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+      </div>
+      <div>
+      <div class="col-md-4">
+        <label for="validationCustom02" class="form-label">Category</label>
+          <select name="category" class="form-select" aria-label="Default select example">
+              {% for x in values %}
+            <option value={{x.id}}>{{x.category_name}}</option>
+            {% endfor %}
+        </select>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-outline">
+          <input name="image" type="file" class="form-control" id="validationCustom02" required />
+          <label for="validationCustom02" class="form-label"></label>
+          <div class="valid-feedback">Looks good!</div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+  </form>
+</div>
+{% endblock %}
